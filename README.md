@@ -1,7 +1,7 @@
 # Go SHM Bench
 
 Comparison between:
-- `shmtool` (https://github.com/ghetzel/shmtool/shm)
+- `shmtool` (https://github.com/ghetzel/shmtool)
 
 ## Installation
 
