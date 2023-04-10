@@ -2,49 +2,22 @@ package main
 
 import (
 	"encoding/binary"
-	"github.com/ghetzel/shmtool/shm"
 	"math"
 )
 
-func WriteFloat64Bench() {
-	segment, err := shm.Create(1024)
-	if err != nil {
-		panic(err)
-	}
-	defer segment.Destroy()
-
+func (bench *Bench) WriteFloat64Bench() {
 	b := make([]byte, 8)
 	binary.LittleEndian.PutUint64(b, math.Float64bits(0.42))
-	_, err = segment.Write(b)
-	if err != nil {
-		panic(err)
-	}
+
+	bench.segment.Write(b)
 }
 
-func WriteInt64Bench() {
-	segment, err := shm.Create(1024)
-	if err != nil {
-		panic(err)
-	}
-	defer segment.Destroy()
-
+func (bench *Bench) WriteInt64Bench() {
 	b := make([]byte, 8)
 	binary.LittleEndian.PutUint64(b, 0xDEAD_BEEF)
-	_, err = segment.Write(b)
-	if err != nil {
-		panic(err)
-	}
+	bench.segment.Write(b)
 }
 
-func WriteRawBench() {
-	segment, err := shm.Create(1024)
-	if err != nil {
-		panic(err)
-	}
-	defer segment.Destroy()
-
-	_, err = segment.Write([]byte("ABCDEFGH"))
-	if err != nil {
-		panic(err)
-	}
+func (bench *Bench) WriteRawBench() {
+	bench.segment.Write([]byte("ABCDEFGH"))
 }

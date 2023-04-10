@@ -13,14 +13,15 @@ Comparison between:
 
 ```sh
 goos: linux
-goarch: arm64
+goarch: amd64
 pkg: github.com/GhostWalkers/GoMemoryBench
+cpu: AMD FX(tm)-6300 Six-Core Processor             
 BenchmarkWriteFloat64Bench
-BenchmarkWriteFloat64Bench-4   	1000000000	         0.0000250 ns/op
+BenchmarkWriteFloat64Bench-6    26955710                38.68 ns/op
 BenchmarkWriteInt64Bench
-BenchmarkWriteInt64Bench-4     	1000000000	         0.0000174 ns/op
+BenchmarkWriteInt64Bench-6      26795438                40.70 ns/op
 BenchmarkWriteRawBench
-BenchmarkWriteRawBench-4       	1000000000	         0.0000166 ns/op
+BenchmarkWriteRawBench-6        26390073                40.81 ns/op
 PASS
 
 ```
